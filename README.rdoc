@@ -4,15 +4,17 @@ ffi-life
 
 == DESCRIPTION:
 
-<tt>ffi-life</tt> is yet another implementation of The Game Of
-Life[1]. The program is derived from my solution to Ruby Quiz
-#193[2][3]. The interesting thing about <tt>ffi-life</tt> is that it
-is a first real usage example of
-{ffi-inliner}[http://github.com/remogatto/life] a library to run C
-code from Ruby through <tt>Ruby-FFI</tt>. <tt>ffi-life</tt> is shipped
-with a naive benchmark that compares the fast <tt>ffi-inliner</tt>
-version against the pure ruby version (see the BENCHMARKS section
-below).
+<tt>ffi-life</tt> is yet another implementation of {The Game Of
+Life}[http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life]. The
+program is derived from my solution to {Ruby Quiz
+#193}[http://rubyquiz.strd6.com/quizzes/193/]. The interesting thing
+about <tt>ffi-life</tt> is that it is a first real usage example of
+{ffi-inliner}[http://github.com/remogatto/ffi-inliner] a library to
+run C code from Ruby through
+{Ruby-FFI}[http://kenai.com/projects/ruby-ffi]. <tt>ffi-life</tt> is
+shipped with a naive benchmark that compares the fast
+<tt>ffi-inliner</tt> version against the pure Ruby version (see the
+BENCHMARKS section below).
 
 == FEATURES/PROBLEMS:
 
@@ -63,12 +65,6 @@ And it's even faster with JRuby!
         user     system      total        real
   [ruby] w: 100 h: 100 ticks: 10  2.100000   0.000000   2.100000 (  2.100000)
   [ruby] w: 60 h: 60 ticks: 10  0.692000   0.000000   0.692000 (  0.692000)
-
-== LINKS:
-
-[1] - http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
-[2] - http://rubyquiz.strd6.com/quizzes/193/
-[3] - http://github.com/remogatto/quizzes/
 
 == LICENSE:
 
