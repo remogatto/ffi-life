@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), '../lib')))
+require 'ffi-life'
+
+class Application
+  class << self
+    def run(w, h, max_gen)
+      seed = NativeGrid.new(Array.new(w * h).map { rand(2) }, w)
+      life = Life.new(seed)
+      max_gen.times do |gen_id|
+        life.tick!
+        puts "#" * w
+        print life
+        puts "#" * w
+        puts "Generation n.#{gen_id + 1}"
+      end
+    end
+  end
+end
+
+args = ARGV.select { |arg| not arg.to_i.zero? }.map { |arg| arg.to_i }
+Application.run(args[0] || 75, args[1] || 20, args[2] || 2000)

@@ -1,0 +1,66 @@
+ffi-life
+  by Andrea Fazzi
+  http://github.com/remogatto/ffi-life
+
+== DESCRIPTION:
+
+<tt>ffi-life</tt> is my implementation of The Game Of Life[1]. The
+program is derived from my solution to Ruby Quiz #193[2][3]. The
+interesting thing about <tt>ffi-life</tt> is that it is a first real
+usage example of ffi-inliner:"http://github.com/remogatto/life" a
+library to run C code from Ruby through Ruby-FFI. <tt>ffi-life</tt> is
+shipped with a naive benchmark that compares the fast
+<tt>ffi-inliner</tt> version against the pure ruby version.
+
+== FEATURES/PROBLEMS:
+
+* Text based!  
+* It uses <tt>ffi-inliner</tt> for very fast cells generation
+* It is multiVM: give it a whirl with JRuby and appreciate how fast is
+  it!
+
+== SYNOPSIS:
+
+Simply open a terminal and run <tt>ffi-life</tt>. The executable takes
+grid's width and height as optional parameters.
+
+== REQUIREMENTS:
+
+* ffi-inliner >= 0.2.1
+
+== DOWNLOAD/INSTALL:
+
+  git clone git://github.com/remogatto/ffi-life
+  cd ffi-life
+  sudo rake gem:install
+
+== LINKS:
+
+[1] - http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+[2] - http://rubyquiz.strd6.com/quizzes/193/
+[3] - http://github.com/remogatto/quizzes/
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2009 Andrea Fazzi
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
