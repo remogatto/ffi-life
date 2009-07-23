@@ -42,7 +42,7 @@ For more options execute:
 
   git clone git://github.com/remogatto/ffi-life
   cd ffi-life
-  sudo rake gem:install
+  rake gem:install
 
 == BENCHMARKS:
 
