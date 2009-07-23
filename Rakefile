@@ -3,7 +3,7 @@
 # are where the options are used.
 
 $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), 'lib')))
-require 'ffi-life'
+require 'ffi-life/version'
 
 begin
   require 'bones'

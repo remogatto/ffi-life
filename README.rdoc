@@ -14,7 +14,8 @@ run C code from Ruby through
 {Ruby-FFI}[http://kenai.com/projects/ruby-ffi]. <tt>ffi-life</tt> is
 shipped with a naive benchmark that compares the fast
 <tt>ffi-inliner</tt> version against the pure Ruby version (see the
-BENCHMARKS section below).
+BENCHMARKS section below). A little injection of C for a big
+difference in speed!
 
 == FEATURES/PROBLEMS:
 
@@ -56,7 +57,7 @@ Ruby 1.8.7 on my MacBook Core 2 2.16GHz.
   [ruby] w: 100 h: 100 ticks: 10  5.200000   0.560000   5.760000 (  5.812291)
   [ruby] w: 60 h: 60 ticks: 10  1.860000   0.210000   2.070000 (  2.086663)
 
-And it's even faster with JRuby!
+And it's even faster on JRuby!
 
   andrea@ganimoide:~/src/ffi-life$ jruby bench/bench.rb
         user     system      total        real
