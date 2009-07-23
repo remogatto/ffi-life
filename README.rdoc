@@ -14,8 +14,8 @@ run C code from Ruby through
 {Ruby-FFI}[http://kenai.com/projects/ruby-ffi]. <tt>ffi-life</tt> is
 shipped with a naive benchmark that compares the fast
 <tt>ffi-inliner</tt> version against the pure Ruby version (see the
-BENCHMARKS section below). A little injection of C for a big
-difference in speed!
+BENCHMARKS section below). A little injection of *portable* C for a
+big improvement in speed!
 
 == FEATURES/PROBLEMS:
 
