@@ -1,5 +1,7 @@
 class Life
 
+  VERSION = '0.1.0'
+
   module GridMixin
     attr_reader :w, :h
     def size

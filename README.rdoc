@@ -4,13 +4,15 @@ ffi-life
 
 == DESCRIPTION:
 
-<tt>ffi-life</tt> is my implementation of The Game Of Life[1]. The
-program is derived from my solution to Ruby Quiz #193[2][3]. The
-interesting thing about <tt>ffi-life</tt> is that it is a first real
-usage example of ffi-inliner:"http://github.com/remogatto/life" a
-library to run C code from Ruby through Ruby-FFI. <tt>ffi-life</tt> is
-shipped with a naive benchmark that compares the fast
-<tt>ffi-inliner</tt> version against the pure ruby version.
+<tt>ffi-life</tt> is yet another implementation of The Game Of
+Life[1]. The program is derived from my solution to Ruby Quiz
+#193[2][3]. The interesting thing about <tt>ffi-life</tt> is that it
+is a first real usage example of
+{ffi-inliner}[http://github.com/remogatto/life] a library to run C
+code from Ruby through <tt>Ruby-FFI</tt>. <tt>ffi-life</tt> is shipped
+with a naive benchmark that compares the fast <tt>ffi-inliner</tt>
+version against the pure ruby version (see the BENCHMARKS section
+below).
 
 == FEATURES/PROBLEMS:
 
@@ -21,8 +23,13 @@ shipped with a naive benchmark that compares the fast
 
 == SYNOPSIS:
 
-Simply open a terminal and run <tt>ffi-life</tt>. The executable takes
-grid's width and height as optional parameters.
+Simply open a terminal and run:
+
+  ffi-life
+
+For more options execute:
+
+  ffi-life --help
 
 == REQUIREMENTS:
 
@@ -33,6 +40,29 @@ grid's width and height as optional parameters.
   git clone git://github.com/remogatto/ffi-life
   cd ffi-life
   sudo rake gem:install
+
+== BENCHMARKS:
+
+Here below there are some benchmark results running ffi-life with MRI
+Ruby 1.8.7 on my MacBook Core 2 2.16GHz.
+
+  andrea@ganimoide:~/src/ffi-life$ ruby bench/bench.rb 
+        user     system      total        real
+  [ffi-inliner] w: 100 h: 100 ticks: 10  1.450000   0.220000   1.670000 (  1.696030)
+  [ffi-inliner[ w: 60 h: 60 ticks: 10  0.520000   0.060000   0.580000 (  0.584314)
+        user     system      total        real
+  [ruby] w: 100 h: 100 ticks: 10  5.200000   0.560000   5.760000 (  5.812291)
+  [ruby] w: 60 h: 60 ticks: 10  1.860000   0.210000   2.070000 (  2.086663)
+
+And it's even faster with JRuby!
+
+  andrea@ganimoide:~/src/ffi-life$ jruby bench/bench.rb
+        user     system      total        real
+  [ffi-inliner] w: 100 h: 100 ticks: 10  0.970000   0.000000   0.970000 (  0.970000)
+  [ffi-inliner[ w: 60 h: 60 ticks: 10  0.310000   0.000000   0.310000 (  0.310000)
+        user     system      total        real
+  [ruby] w: 100 h: 100 ticks: 10  2.100000   0.000000   2.100000 (  2.100000)
+  [ruby] w: 60 h: 60 ticks: 10  0.692000   0.000000   0.692000 (  0.692000)
 
 == LINKS:
 

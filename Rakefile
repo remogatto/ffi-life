@@ -2,6 +2,9 @@
 # configured in this Rakefile. The .rake files in the tasks directory
 # are where the options are used.
 
+$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), 'lib')))
+require 'ffi-life'
+
 begin
   require 'bones'
   Bones.setup
@@ -19,16 +22,18 @@ PROJ.name = 'ffi-life'
 PROJ.authors = 'Andrea Fazzi'
 PROJ.email = 'andrea.fazzi@alcacoop.it'
 PROJ.url = 'http://github.com/remogatto/ffi-life'
-PROJ.version = '0.1.0'
+PROJ.version = Life::VERSION
 
 PROJ.readme_file = 'README.rdoc'
 
-PROJ.ann.paragraphs << 'FEATURES' << 'SYNOPSIS' << 'REQUIREMENTS' << 'DOWNLOAD/INSTALL' << 'LINKS'
+PROJ.ann.paragraphs << 'FEATURES' << 'SYNOPSIS' << 'REQUIREMENTS' << 'DOWNLOAD/INSTALL' << 'BENCHMARKS' << 'LINKS'
 PROJ.ann.email[:from] = 'andrea.fazzi@alcacoop.it'
 PROJ.ann.email[:to] << 'dev@ruby-ffi.kenai.com' << 'users@ruby-ffi.kenai.com'
 PROJ.ann.email[:server] = 'smtp.gmail.com'
 
 PROJ.spec.opts << '--color' << '-fs'
+
+PROJ.ruby_opts = []
 
 depend_on 'ffi-inliner', '0.2.1'
 

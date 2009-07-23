@@ -18,7 +18,7 @@ require 'ffi-life'
       @life[0, 1].should == 0
       @life[1, 1].should == 1
     end
-    it 'should clip the coordinates out of the grid' do
+    it 'should clip the coordinates out from the grid' do
       @life[-1, 0].should == 0
       @life[-3, 1].should == 0
       @life[2, 8].should == 0
