@@ -9,6 +9,8 @@ class Life
                   "Display the version number and quit." ],
                 [ "--pure-ruby", "-R", GetoptLong::NO_ARGUMENT,
                   "Disable ffi-inliner." ],
+                [ "--runner", "-r", GetoptLong::REQUIRED_ARGUMENT,
+                  "Run with the given runner." ],
                ]
 
     USAGE_PREAMBLE = <<-EOU
@@ -22,16 +24,10 @@ EOU
     class << self
       def run(w, h, max_ticks)
         process_args
-        seed = Array.new(w * h).map { rand(2) }
+        seed = Array.new(w * h) { rand(2) }
         grid = @pure_ruby ? Grid.new(seed, w) : NativeGrid.new(seed, w)
         life = Life.new(grid)
-        max_ticks.times do |gen_id|
-          life.tick!
-          puts "#" * w
-          print life
-          puts "#" * w
-          puts "Generation n.#{gen_id + 1}"
-        end
+        (@runner || Runners::Console).new(life).run
       end
       private
       def do_option(option, value = nil)
@@ -41,6 +37,8 @@ EOU
           exit
         when '--pure-ruby'
           @pure_ruby = true
+        when '--runner'
+          @runner = Life::Runners.const_get(value.to_sym)
         when '--version'
           puts "ffi-life, version #{Life::VERSION}\n"
           exit

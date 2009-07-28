@@ -1,7 +1,5 @@
 class Life
 
-  VERSION = '0.1.0'
-
   module GridMixin
     attr_reader :w, :h
     def size
@@ -137,6 +135,7 @@ class Life
   end
 
   include Enumerable
+  attr_reader :w, :h
 
   def initialize(seed)
     @w, @h, @cells = seed.w, seed.h, seed
