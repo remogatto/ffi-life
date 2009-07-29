@@ -23,23 +23,30 @@ class Life
       end
       
       def run
-        loop do
-          @background.fill([0, 0, 0])
-          update
-          draw
-          @clock.tick
-          @life.tick!
-          @background.blit(@screen, [0, 0])
-          @screen.update
+        catch(:rubygame_quit) do
+          loop do
+            @background.fill([0, 0, 0])
+            update
+            draw
+            @clock.tick
+            @background.blit(@screen, [0, 0])
+            @screen.update
+          end
         end
       end
       
       def update
         @queue.each do |ev|
           case ev
+          when KeyDownEvent
+            case ev.key
+            when K_ESCAPE
+              throw :rubygame_quit
+            when K_Q
+              throw :rubygame_quit              
+            end
           when QuitEvent
-            quit
-            exit
+            throw :rubygame_quit
           end
         end
       end
@@ -52,7 +59,7 @@ class Life
       end
 
       def draw
-        @life.each do |cell|
+        @life.tick! do |cell|
           draw_cell(cell.x, cell.y) if cell.alive?
         end
       end

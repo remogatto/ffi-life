@@ -157,6 +157,7 @@ class Life
   end
   def tick!
     each do |cell|
+      yield cell if block_given?
       if cell.alive?
         (cell.alive_neighbours < 2 || cell.alive_neighbours > 3) ? cell.die : cell.unchanged
       else
